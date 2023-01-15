@@ -38,7 +38,7 @@ android {
     def gitHash = "git rev-parse --short HEAD".execute().text.trim()
     def hasModifiedDeletedOrOtherFiles = !"git ls-files -mdo --exclude-standard".execute().text.trim().isEmpty()
     def hasStagedFiles = !"git diff-index --no-ext-diff --name-only --cached HEAD".execute().text.trim().isEmpty()
-    def dirtyWorkingCopy = hasModifiedDeletedOrOtherFiles || hasStagedFiles 
+    def dirtyWorkingCopy = hasModifiedDeletedOrOtherFiles || hasStagedFiles
     def gitDescription = dirtyWorkingCopy ? "${gitHash}-dirty" : gitHash
 
     packagingOptions {
@@ -52,7 +52,7 @@ android {
 
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 26
+        targetSdkVersion 28
 
         applicationId "org.mozilla.mozstumbler"
 
@@ -163,7 +163,7 @@ android {
                 def buildTypeName = variant.buildType.name
                 println("Variant buildType: [" + buildTypeName + "]")
                 if (buildTypeName == 'debug') {
-                    updatedContent = updatedContent.replaceAll("<!-- ANDROID_MOCK_LOCATION -->", 
+                    updatedContent = updatedContent.replaceAll("<!-- ANDROID_MOCK_LOCATION -->",
                             '<uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" />')
                 }
                 println("Writing new manifest into ${manifestFilePath}")
@@ -201,8 +201,8 @@ dependencies {
     androidTestCompile 'org.robolectric:robolectric:2.4'
     testCompile        'org.robolectric:robolectric:2.4'
 
-    androidTestCompile "org.mockito:mockito-core:1.+"
-    testCompile        "org.mockito:mockito-core:1.+"
+    androidTestCompile "org.mockito:mockito-core:1.10.19"
+    testCompile        "org.mockito:mockito-core:1.10.19"
 
     compile 'com.crankycoder:SimpleKML:1.0'
     compile 'org.slf4j:slf4j-android:1.7.7'
@@ -212,8 +212,8 @@ dependencies {
     // libraries, because they support a wide range of Android versions and
     // provide APIs for recommended user interface patterns.
 
-    compile "com.android.support:support-v4:23.0.0"
-    compile 'com.android.support:appcompat-v7:23.0.0'
+    compile "com.android.support:support-v4:28.0.0"
+    compile 'com.android.support:appcompat-v7:28.0.0'
 
     compile('org.simpleframework:simple-xml:2.7.1') {
         exclude group: 'stax', module: 'stax-api'
@@ -228,7 +228,7 @@ dependencies {
     }
 
     // osmdroid stuff
-    compile "org.apache.httpcomponents:httpmime:4.0.1"
+    compile "org.apache.httpcomponents:httpmime:4.5.6"
     compile "org.apache.james:apache-mime4j:0.6"
 
     // org.apache.http.httpclient
