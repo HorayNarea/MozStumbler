@@ -4,8 +4,6 @@
 
 package org.mozilla.mozstumbler.service.uploadthread;
 
-import android.text.TextUtils;
-
 public class AsyncUploadParam {
 
     final boolean useWifiOnly;

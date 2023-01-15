@@ -7,6 +7,7 @@ package org.mozilla.mozstumbler.service.stumblerthread.datahandling.base;
 import org.acra.ACRA;
 import org.mozilla.mozstumbler.service.AppGlobals;
 import org.mozilla.mozstumbler.service.core.logging.ClientLog;
+
 import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;

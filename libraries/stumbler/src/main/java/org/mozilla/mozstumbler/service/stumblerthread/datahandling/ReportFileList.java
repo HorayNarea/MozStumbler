@@ -4,8 +4,6 @@
 
 package org.mozilla.mozstumbler.service.stumblerthread.datahandling;
 
-import org.mozilla.mozstumbler.service.AppGlobals;
-import org.mozilla.mozstumbler.service.core.logging.ClientLog;
 import org.mozilla.mozstumbler.service.stumblerthread.datahandling.base.SerializedJSONRows;
 import org.mozilla.mozstumbler.service.stumblerthread.datahandling.base.SerializedJSONRowsList;
 

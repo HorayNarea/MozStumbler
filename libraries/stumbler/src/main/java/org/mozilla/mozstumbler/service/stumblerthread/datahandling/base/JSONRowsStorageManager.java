@@ -18,7 +18,6 @@ import org.mozilla.mozstumbler.svclocator.services.log.LoggerUtil;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.RandomAccessFile;
 import java.util.Timer;
 import java.util.TimerTask;
 

@@ -8,12 +8,11 @@ import android.content.Context;
 import android.graphics.Color;
 
 import org.mozilla.mozstumbler.service.AppGlobals;
+import org.mozilla.osmdroid.tileprovider.MapTile;
 import org.mozilla.osmdroid.tileprovider.tilesource.ITileSource;
 import org.mozilla.osmdroid.tileprovider.tilesource.XYTileSource;
 import org.mozilla.osmdroid.tileprovider.util.SimpleInvalidationHandler;
 import org.mozilla.osmdroid.views.MapView;
-
-import org.mozilla.osmdroid.tileprovider.MapTile;
 
 public class LowResMapOverlay extends AbstractMapOverlay {
     public static final int LOW_ZOOM_LEVEL = 11;

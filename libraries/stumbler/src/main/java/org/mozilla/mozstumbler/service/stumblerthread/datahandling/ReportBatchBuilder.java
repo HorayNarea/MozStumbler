@@ -5,8 +5,8 @@
 package org.mozilla.mozstumbler.service.stumblerthread.datahandling;
 
 import org.json.JSONObject;
-import org.mozilla.mozstumbler.service.stumblerthread.datahandling.base.SerializedJSONRows;
 import org.mozilla.mozstumbler.service.stumblerthread.datahandling.base.JSONRowsObjectBuilder;
+import org.mozilla.mozstumbler.service.stumblerthread.datahandling.base.SerializedJSONRows;
 import org.mozilla.mozstumbler.service.utils.Zipper;
 
 /*

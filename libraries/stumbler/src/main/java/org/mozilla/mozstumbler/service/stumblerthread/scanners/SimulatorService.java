@@ -11,7 +11,6 @@ import android.net.wifi.ScanResult;
 import android.os.Build;
 import android.os.Handler;
 import android.os.SystemClock;
-import android.telephony.TelephonyManager;
 
 import org.mozilla.mozstumbler.service.Prefs;
 import org.mozilla.mozstumbler.service.core.logging.ClientLog;
@@ -22,7 +21,6 @@ import org.mozilla.mozstumbler.svclocator.services.log.LoggerUtil;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.util.LinkedList;
 import java.util.List;
 
