@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -340,7 +341,7 @@
                     android:adjustViewBounds="true"
                     android:maxHeight="14dp"
                     android:maxWidth="14dp"
-                    android:src="@drawable/ic_greendot" />
+                    app:srcCompat="@drawable/ic_greendot" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -368,7 +369,7 @@
                     android:adjustViewBounds="true"
                     android:maxHeight="14dp"
                     android:maxWidth="14dp"
-                    android:src="@drawable/ic_purplering" />
+                    app:srcCompat="@drawable/ic_purplering" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -396,7 +397,7 @@
                     android:adjustViewBounds="true"
                     android:maxHeight="14dp"
                     android:maxWidth="14dp"
-                    android:src="@drawable/ic_bluerect" />
+                    app:srcCompat="@drawable/ic_bluerect" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -426,7 +427,7 @@
                     android:adjustViewBounds="true"
                     android:maxHeight="14dp"
                     android:maxWidth="14dp"
-                    android:src="@drawable/ic_reddot" />
+                    app:srcCompat="@drawable/ic_reddot" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -462,7 +463,7 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:enabled="false"
-            android:src="@drawable/ic_action_upload" />
+            app:srcCompat="@drawable/ic_action_upload" />
 
         <ImageButton
             android:id="@+id/metrics_settings_button"
@@ -472,6 +473,6 @@
             android:layout_alignParentRight="true"
             android:contentDescription="@string/action_preferences"
             android:enabled="false"
-            android:src="@drawable/ic_action_settings" />
+            app:srcCompat="@drawable/ic_action_settings" />
     </RelativeLayout>
 </LinearLayout>

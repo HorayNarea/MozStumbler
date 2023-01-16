@@ -6,7 +6,7 @@ package org.mozilla.mozstumbler.client.subactivities;
 
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.AppCompatActivity;
 
 import org.robolectric.annotation.Implementation;
 import org.robolectric.annotation.Implements;
@@ -28,7 +28,7 @@ public class FirstRunDialogFragmentShadow {
     }
 
     @Implementation
-    final public FragmentActivity getActivity() {
+    final public AppCompatActivity getActivity() {
         if (this.returnNullActivity) {
             return null;
         }

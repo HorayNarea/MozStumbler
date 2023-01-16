@@ -1,4 +1,5 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -20,7 +21,7 @@
             android:id="@+id/fix_indicator"
             android:layout_width="35dp"
             android:layout_height="35dp"
-            android:src="@drawable/ic_gps_no_signal_flaticondotcom" />
+            app:srcCompat="@drawable/ic_gps_no_signal_flaticondotcom" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -73,7 +74,7 @@
                 android:layout_height="33dp"
                 android:layout_marginLeft="-10dp"
                 android:layout_marginStart="-10dp"
-                android:src="@drawable/ic_cell_flaticondotcom" />
+                app:srcCompat="@drawable/ic_cell_flaticondotcom" />
 
             <TextView
                 android:id="@+id/text_cells_visible"
@@ -95,7 +96,7 @@
                 android:layout_height="35dp"
                 android:layout_marginEnd="6dp"
                 android:layout_marginRight="6dp"
-                android:src="@drawable/ic_wifi_flaticondotcom" />
+                app:srcCompat="@drawable/ic_wifi_flaticondotcom" />
 
             <TextView
                 android:id="@+id/text_wifis_visible"
@@ -118,7 +119,7 @@
                 android:layout_gravity="center"
                 android:layout_marginEnd="6dp"
                 android:layout_marginRight="6dp"
-                android:src="@drawable/ic_binoculars_flaticondotcom" />
+                app:srcCompat="@drawable/ic_binoculars_flaticondotcom" />
 
             <TextView
                 android:id="@+id/text_observation_count"

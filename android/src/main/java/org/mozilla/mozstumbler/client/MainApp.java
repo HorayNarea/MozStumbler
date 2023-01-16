@@ -5,7 +5,6 @@
 package org.mozilla.mozstumbler.client;
 
 import android.annotation.TargetApi;
-import android.app.Activity;
 import android.app.Application;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
@@ -28,6 +27,7 @@ import org.mozilla.mozstumbler.BuildConfig;
 import org.mozilla.mozstumbler.R;
 import org.mozilla.mozstumbler.client.subactivities.DeveloperActivity;
 import org.mozilla.mozstumbler.client.subactivities.LogActivity;
+import org.mozilla.mozstumbler.client.subactivities.PreferencesScreen;
 import org.mozilla.mozstumbler.client.util.NotificationUtil;
 import org.mozilla.mozstumbler.service.AppGlobals;
 import org.mozilla.mozstumbler.service.core.http.HttpUtil;
@@ -377,7 +377,7 @@ public class MainApp extends Application
                  scannerState == ScannerState.STARTED;
     }
 
-    public void showDeveloperDialog(Activity activity) {
+    public void showDeveloperDialog(PreferencesScreen activity) {
         activity.startActivity(new Intent(activity, DeveloperActivity.class));
     }
 

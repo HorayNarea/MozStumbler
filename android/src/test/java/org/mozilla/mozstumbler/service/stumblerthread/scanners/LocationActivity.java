@@ -3,16 +3,16 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 package org.mozilla.mozstumbler.service.stumblerthread.scanners;
 
-import android.app.Activity;
 import android.content.Context;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 import java.util.List;
 
-public class LocationActivity extends Activity implements LocationListener {
+public class LocationActivity extends AppCompatActivity implements LocationListener {
 
     final boolean REQUIRED_NETWORK = false;
     final boolean REQUIRES_SATELLITE = false;

@@ -16,6 +16,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.support.v4.content.LocalBroadcastManager;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -231,8 +232,8 @@ public class MetricsView {
     }
 
     private boolean isScanningOrPaused() {
-        if (mView.getContext() instanceof Activity) {
-            Activity activity = (Activity) mView.getContext();
+        if (mView.getContext() instanceof AppCompatActivity) {
+            AppCompatActivity activity = (AppCompatActivity) mView.getContext();
             if (activity.getApplication() != null) {
                 MainApp app = (MainApp) activity.getApplication();
                 return app.isScanningOrPaused();

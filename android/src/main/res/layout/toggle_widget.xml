@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/toggleService"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -14,7 +15,7 @@
         android:checked="false"
         android:paddingLeft="10dp"
         android:scaleType="center"
-        android:src="@drawable/ic_status_scanning" />
+        app:srcCompat="@drawable/ic_status_scanning" />
 
     <LinearLayout
         android:id="@+id/stumbler_info_bar"
@@ -38,7 +39,7 @@
                 android:layout_height="36dp"
                 android:layout_gravity="center"
                 android:minHeight="36dp"
-                android:src="@drawable/ic_cell_flaticondotcom" />
+                app:srcCompat="@drawable/ic_cell_flaticondotcom" />
 
             <TextView
                 android:id="@+id/stumbler_info2"
@@ -68,7 +69,7 @@
                 android:layout_height="36dp"
                 android:layout_gravity="center"
                 android:minHeight="36dp"
-                android:src="@drawable/ic_wifi_flaticondotcom" />
+                app:srcCompat="@drawable/ic_wifi_flaticondotcom" />
 
             <TextView
                 android:id="@+id/stumbler_info1"
@@ -98,7 +99,7 @@
                 android:layout_height="36dp"
                 android:layout_gravity="center"
                 android:minHeight="36dp"
-                android:src="@drawable/ic_binoculars_flaticondotcom" />
+                app:srcCompat="@drawable/ic_binoculars_flaticondotcom" />
 
             <TextView
                 android:id="@+id/stumbler_info3"

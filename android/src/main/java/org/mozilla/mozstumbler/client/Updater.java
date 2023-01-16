@@ -4,14 +4,14 @@
 
 package org.mozilla.mozstumbler.client;
 
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 import org.mozilla.mozstumbler.R;
@@ -42,7 +42,7 @@ public class Updater {
     }
 
 
-    public boolean checkForUpdates(final Activity activity, String api_key) {
+    public boolean checkForUpdates(final AppCompatActivity activity, String api_key) {
 
         ISystemClock clock = (ISystemClock) ServiceLocator.getInstance().getService(ISystemClock.class);
 

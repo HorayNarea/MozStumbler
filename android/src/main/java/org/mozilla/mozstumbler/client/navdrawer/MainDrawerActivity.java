@@ -220,8 +220,8 @@ public class MainDrawerActivity
             Switch s = new Switch(this);
             s.setChecked(false);
             s.setOnCheckedChangeListener(mStartStopButtonListener);
-            mMenuItemStartStop.setActionView(s);
-            mMenuItemStartStop.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+            MenuItemCompat.setActionView(mMenuItemStartStop, s);
+            MenuItemCompat.setShowAsAction(mMenuItemStartStop, MenuItem.SHOW_AS_ACTION_ALWAYS);
         } else {
             MenuItemCompat.setShowAsAction(mMenuItemStartStop, MenuItemCompat.SHOW_AS_ACTION_ALWAYS);
         }
@@ -247,7 +247,7 @@ public class MainDrawerActivity
         }
 
         if (Build.VERSION.SDK_INT >= 14) {
-            Switch s = (Switch) mMenuItemStartStop.getActionView();
+            Switch s = (Switch) MenuItemCompat.getActionView(mMenuItemStartStop);
             s.setOnCheckedChangeListener(null);
             if (app.isScanningOrPaused() && !s.isChecked()) {
                 s.setChecked(true);
@@ -278,7 +278,7 @@ public class MainDrawerActivity
         // Sync the toggle state after onRestoreInstanceState has occurred.
         mDrawerToggle.syncState();
 
-        if (mMapFragment != null) { 
+        if (mMapFragment != null) {
             mMetricsView.setMapLayerToggleListener(mMapFragment);
         }
     }
@@ -433,7 +433,7 @@ public class MainDrawerActivity
 
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) 
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults)
     {
         LinkedList<String> where = new LinkedList<String>();
         for (int idx = 0; idx < permissions.length; idx++) {
@@ -451,7 +451,7 @@ public class MainDrawerActivity
                     100);
 
         } else {
-            // Initialize the map fragment 
+            // Initialize the map fragment
             FragmentManager fragmentManager = getSupportFragmentManager();
             mMapFragment = new MapFragment();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();

@@ -3,7 +3,6 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 package org.mozilla.mozstumbler.client.subactivities;
 
-import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -11,6 +10,7 @@ import android.os.Environment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -176,7 +176,7 @@ public class DeveloperActivity extends AppCompatActivity {
                 }
             });
         }
-        
+
         private void setupMinPauseTime() {
             ClientPrefs cPrefs = ClientPrefs.getInstance(mRootView.getContext());
             final String[] timeArray = {"5 s", "10 s", "20 s", "30 s", "60 s", "120 s"};
