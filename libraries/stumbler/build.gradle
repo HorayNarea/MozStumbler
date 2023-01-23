@@ -7,9 +7,6 @@ allprojects {
     }
 }
 
-version = "1.8.6"
-group = 'org.mozilla.mozstumbler'
-
 android {
     compileSdkVersion 28
 
