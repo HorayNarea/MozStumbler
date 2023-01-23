@@ -55,7 +55,7 @@ dependencies {
 
     // Google Guava.  I'm lazy and want to use collections that aren't
     // crazy.
-    implementation group: 'com.google.guava', name: 'guava', version: '30.0-android'
+    implementation group: 'com.google.guava', name: 'guava', version: '31.1-android'
 
 }
 
