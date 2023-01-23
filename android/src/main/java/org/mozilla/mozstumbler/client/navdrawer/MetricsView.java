@@ -7,6 +7,7 @@ package org.mozilla.mozstumbler.client.navdrawer;
 import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.ContextWrapper;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.LightingColorFilter;
@@ -114,7 +115,7 @@ public class MetricsView {
         mSettingsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Activity mainDrawer = (Activity) v.getContext();
+                Activity mainDrawer = unwrap(v.getContext());
                 assert (mainDrawer instanceof MainDrawerActivity);
                 mainDrawer.startActivityForResult(new Intent(v.getContext(), PreferencesScreen.class), 1);
             }
@@ -135,11 +136,18 @@ public class MetricsView {
         showPowerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Activity mainDrawer = (Activity) v.getContext();
+                Activity mainDrawer = unwrap(v.getContext());
                 assert (mainDrawer instanceof MainDrawerActivity);
                 mainDrawer.startActivityForResult(new Intent(v.getContext(), PowerSavingScreen.class), 1);
             }
         });
+    }
+
+    private static Activity unwrap(Context context) {
+        while (!(context instanceof Activity) && context instanceof ContextWrapper) {
+            context = ((ContextWrapper) context).getBaseContext();
+        }
+        return (Activity) context;
     }
 
     void updatePowerSavingsLabels() {
