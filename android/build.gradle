@@ -9,18 +9,6 @@ for (versionPart in [versionPatch, versionMinor, versionMajor]) {
     assert versionPart <= 99
 }
 
-
-buildscript {
-    repositories {
-        jcenter()
-        maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
-    }
-
-    dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.3'
-    }
-}
-
 apply plugin: 'com.android.application'
 
 repositories {
