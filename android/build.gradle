@@ -34,7 +34,7 @@ android {
 
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 26
+        targetSdkVersion 28
 
         applicationId "org.mozilla.mozstumbler"
 
