@@ -34,3 +34,9 @@ jobs:
 
     - name: Build with Gradle
       run: ./gradlew assembleFdroidDebug assemblePlaystoreDebug assembleGithubDebug --no-daemon
+
+    - name: Upload APKs
+      uses: actions/upload-artifact@v3
+      with:
+        name: MozStumbler-fdroid-debug-${{ matrix.java }}-${{ github.sha }}.apk
+        path: android/build/outputs/apk/fdroid/debug/MozStumbler-fdroid-debug.apk
