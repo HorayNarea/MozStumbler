@@ -4,8 +4,9 @@
 
 package org.mozilla.mozstumbler.svclocator.services.log;
 
-import android.support.v4.util.CircularArray;
 import android.util.Log;
+
+import androidx.collection.CircularArray;
 
 import java.lang.reflect.Field;
 

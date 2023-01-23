@@ -30,7 +30,6 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import static org.mozilla.mozstumbler.client.subactivities.DeveloperActivity.DeveloperOptions;
-import static org.robolectric.util.FragmentTestUtil.startFragment;
 
 @Config(emulateSdk = 18)
 @RunWith(RobolectricTestRunner.class)

@@ -4,9 +4,9 @@
 
 package org.mozilla.mozstumbler.client.subactivities;
 
-import android.support.v4.app.DialogFragment;
-import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.Fragment;
 
 import org.robolectric.annotation.Implementation;
 import org.robolectric.annotation.Implements;

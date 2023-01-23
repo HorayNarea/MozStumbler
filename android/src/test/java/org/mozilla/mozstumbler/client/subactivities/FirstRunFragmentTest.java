@@ -20,7 +20,6 @@ import org.robolectric.annotation.Config;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.spy;
 import static org.robolectric.bytecode.ShadowWrangler.shadowOf;
-import static org.robolectric.util.FragmentTestUtil.startFragment;
 
 @Config(emulateSdk = 18,
         shadows = {FirstRunDialogFragmentShadow.class})

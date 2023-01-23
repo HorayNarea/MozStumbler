@@ -12,7 +12,8 @@ import android.content.IntentFilter;
 import android.os.Binder;
 import android.os.IBinder;
 import android.os.Looper;
-import android.support.v4.content.LocalBroadcastManager;
+
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import org.mozilla.mozstumbler.R;
 import org.mozilla.mozstumbler.client.util.NotificationUtil;
