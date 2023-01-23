@@ -13,7 +13,6 @@ apply plugin: 'com.android.application'
 
 repositories {
     jcenter()
-    maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
     mavenLocal()
 }
 
