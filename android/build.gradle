@@ -21,7 +21,6 @@ android {
     compileSdkVersion 28
     useLibrary 'org.apache.http.legacy'
 
-
     def gitHash = "git rev-parse --short HEAD".execute().text.trim()
     def hasModifiedDeletedOrOtherFiles = !"git ls-files -mdo --exclude-standard".execute().text.trim().isEmpty()
     def hasStagedFiles = !"git diff-index --no-ext-diff --name-only --cached HEAD".execute().text.trim().isEmpty()
@@ -32,7 +31,6 @@ android {
             excludes += ['META-INF/NOTICE.txt', 'META-INF/NOTICE', 'META-INF/LICENSE.txt', 'META-INF/LICENSE', 'META-INF/DEPENDENCIES', 'META-INF/DEPENDENCIES.txt']
         }
     }
-
 
     defaultConfig {
         minSdkVersion 14
@@ -59,7 +57,6 @@ android {
 
         buildConfigField "String", "GIT_DESCRIPTION", "\"${gitDescription}\""
         buildConfigField "String", "GIT_VERSION", "\"${versionName} ${gitDescription}\""
-
     }
 
     signingConfigs {
@@ -92,7 +89,6 @@ android {
             buildConfigField "String", "TILE_SERVER_URL", getTileServerUrl('fdroid')
             buildConfigField "boolean", "FDROID", "true"
         }
-
     }
 
     buildTypes {
@@ -103,12 +99,10 @@ android {
             // set this to false if you want your debug builds to have
             // standard unlabelled tiles.
             buildConfigField "boolean", "LABEL_MAP_TILES", "false"
-
         }
 
         release {
             signingConfig signingConfigs.release
-
         }
 
         unittest.initWith(buildTypes.debug)
@@ -120,16 +114,14 @@ android {
     sourceSets {
         androidTest.setRoot('src/test')
     }
+
     lint {
         abortOnError false
         disable 'MissingTranslation'
     }
+
     namespace 'org.mozilla.mozstumbler'
-
-
 }
-
-
 
 dependencies {
     androidTestImplementation 'junit:junit:4.10'
@@ -172,8 +164,6 @@ dependencies {
     testImplementation project(':libraries:stumbler')
 }
 
-
-
 tasks.withType(JavaCompile) {
     options.compilerArgs = ['-Xlint:all', '-Xlint:-deprecation']
 }
@@ -192,7 +182,6 @@ if (signFile.exists()) {
     println "No private.properties file was found."
     android.buildTypes.release.signingConfig = null
 }
-
 
 String getMozillaApiKey(String scope) {
     // Yeah, this is lame, opening the file again.  Sosume.
@@ -229,11 +218,9 @@ String getTileServerUrl(String scope) {
     return "null"
 }
 
-
 // Yay for apk basenames that you can only figure out by reading the
 // gradle source.
 project.archivesBaseName = "MozStumbler"
-
 
 // JUnit tests missing test resources in classpath
 // See: https://code.google.com/p/android/issues/detail?id=64887
