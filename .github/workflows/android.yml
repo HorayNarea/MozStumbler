@@ -29,4 +29,4 @@ jobs:
       run: chmod +x gradlew
 
     - name: Build with Gradle
-      run: ./gradlew assembleFdroidDebug --no-daemon
+      run: ./gradlew assembleFdroidDebug assemblePlaystoreDebug assembleGithubDebug --no-daemon
