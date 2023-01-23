@@ -14,13 +14,13 @@ android {
         minSdkVersion 14
         targetSdkVersion 28
     }
+
     lint {
         abortOnError false
         checkReleaseBuilds false
     }
+
     namespace 'org.mozilla.mozstumbler.svclocator'
-
-
 }
 
 dependencies {
