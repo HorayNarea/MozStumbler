@@ -158,7 +158,7 @@ dependencies {
     testCompile        "org.mockito:mockito-core:1.10.19"
 
     compile 'com.crankycoder:SimpleKML:1.0'
-    compile 'org.slf4j:slf4j-android:1.7.7'
+    compile 'org.slf4j:slf4j-android:1.7.36'
 
     // https://developer.android.com/tools/support-library/features.html
     // In general, we recommend including the v4 support and v7 appcompat
@@ -181,7 +181,7 @@ dependencies {
     }
 
     // osmdroid stuff
-    compile "org.apache.httpcomponents:httpmime:4.5.6"
+    compile 'org.apache.httpcomponents:httpmime:4.5.14'
     compile "org.apache.james:apache-mime4j:0.6"
 
     // org.apache.http.httpclient
