@@ -72,7 +72,7 @@ dependencies {
 
     // Google Guava.  I'm lazy and want to use collections that aren't
     // crazy.
-    compile group: 'com.google.guava', name: 'guava', version: '31.0-android'
+    compile group: 'com.google.guava', name: 'guava', version: '30.0-android'
 
 }
 
