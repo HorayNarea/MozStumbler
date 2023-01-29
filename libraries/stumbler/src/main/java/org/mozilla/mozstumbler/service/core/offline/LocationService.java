@@ -9,7 +9,6 @@ import android.location.LocationManager;
 import android.os.Environment;
 
 import com.crankycoder.marisa.IntRecordTrie;
-import com.google.common.primitives.Ints;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -111,7 +110,7 @@ public class LocationService implements IOfflineLocationService {
         Log.i(LOG_TAG, "END BSSID for offline geo");
 
 
-        max_tilept = Ints.max(tile_points);
+        max_tilept = maxIntInArray(tile_points);
         if (max_tilept <= 1) {
             Log.i(LOG_TAG, "Can't find any solution to this set of BSSIDS");
             return null;
@@ -156,7 +155,7 @@ public class LocationService implements IOfflineLocationService {
             }
 
             // Recompute the max tile
-            max_tilept = Ints.max(tile_points);
+            max_tilept = maxIntInArray(tile_points);
             maxpt_tileset = new HashSet<Integer>();
             for (int i = 0; i < tile_points.length; i++) {
                 if (tile_points[i] == max_tilept) {
@@ -328,5 +327,16 @@ public class LocationService implements IOfflineLocationService {
         return result;
     }
 
-
+    private static int maxIntInArray(int... array) {
+        if (!(array.length > 0)) {
+            throw new IllegalArgumentException();
+        }
+        int max = array[0];
+        for (int i = 1; i < array.length; i++) {
+            if (array[i] > max) {
+                max = array[i];
+            }
+        }
+        return max;
+    }
 }

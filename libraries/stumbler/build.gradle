@@ -52,11 +52,6 @@ dependencies {
 
     // marisa-trie for offline geo support
     api 'org.mozilla.mozstumbler.marisa:marisa:0.4'
-
-    // Google Guava.  I'm lazy and want to use collections that aren't
-    // crazy.
-    implementation group: 'com.google.guava', name: 'guava', version: '31.1-android'
-
 }
 
 task sourcesJar(type: Jar) {
