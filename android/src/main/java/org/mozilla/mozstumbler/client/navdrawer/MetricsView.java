@@ -143,11 +143,11 @@ public class MetricsView {
         });
     }
 
-    private static Activity unwrap(Context context) {
-        while (!(context instanceof Activity) && context instanceof ContextWrapper) {
+    private static AppCompatActivity unwrap(Context context) {
+        while (!(context instanceof AppCompatActivity) && context instanceof ContextWrapper) {
             context = ((ContextWrapper) context).getBaseContext();
         }
-        return (Activity) context;
+        return (AppCompatActivity) context;
     }
 
     void updatePowerSavingsLabels() {
