@@ -11,7 +11,6 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -147,11 +146,9 @@ public class MainDrawerActivity
         }
 
 
-        if (Build.VERSION.SDK_INT > 10) {
-            getWindow().setFlags(
-                    WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED,
-                    WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED);
-        }
+        getWindow().setFlags(
+                WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED,
+                WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED);
 
         getSupportActionBar().setTitle(getString(R.string.app_name));
 
@@ -217,15 +214,11 @@ public class MainDrawerActivity
         getMenuInflater().inflate(R.menu.main, menu);
 
         mMenuItemStartStop = menu.add(Menu.NONE, MENU_START_STOP, Menu.NONE, R.string.start_scanning);
-        if (Build.VERSION.SDK_INT >= 14) {
-            Switch s = new Switch(this);
-            s.setChecked(false);
-            s.setOnCheckedChangeListener(mStartStopButtonListener);
-            MenuItemCompat.setActionView(mMenuItemStartStop, s);
-            MenuItemCompat.setShowAsAction(mMenuItemStartStop, MenuItem.SHOW_AS_ACTION_ALWAYS);
-        } else {
-            MenuItemCompat.setShowAsAction(mMenuItemStartStop, MenuItemCompat.SHOW_AS_ACTION_ALWAYS);
-        }
+        Switch s = new Switch(this);
+        s.setChecked(false);
+        s.setOnCheckedChangeListener(mStartStopButtonListener);
+        MenuItemCompat.setActionView(mMenuItemStartStop, s);
+        MenuItemCompat.setShowAsAction(mMenuItemStartStop, MenuItem.SHOW_AS_ACTION_ALWAYS);
 
         updateStartStopMenuItemState();
         return true;
@@ -247,25 +240,14 @@ public class MainDrawerActivity
             keepScreenOn(false);
         }
 
-        if (Build.VERSION.SDK_INT >= 14) {
-            Switch s = (Switch) MenuItemCompat.getActionView(mMenuItemStartStop);
-            s.setOnCheckedChangeListener(null);
-            if (app.isScanningOrPaused() && !s.isChecked()) {
-                s.setChecked(true);
-            } else if (!app.isScanningOrPaused() && s.isChecked()) {
-                s.setChecked(false);
-            }
-            s.setOnCheckedChangeListener(mStartStopButtonListener);
-        } else {
-            boolean buttonStateIsScanning = mMenuItemStartStop.getTitle().equals(getString(R.string.stop_scanning));
-            if (app.isScanningOrPaused() && !buttonStateIsScanning) {
-                mMenuItemStartStop.setIcon(android.R.drawable.ic_media_pause);
-                mMenuItemStartStop.setTitle(R.string.stop_scanning);
-            } else if (!app.isScanningOrPaused() && buttonStateIsScanning) {
-                mMenuItemStartStop.setIcon(android.R.drawable.ic_media_play);
-                mMenuItemStartStop.setTitle(R.string.start_scanning);
-            }
+        Switch s = (Switch) MenuItemCompat.getActionView(mMenuItemStartStop);
+        s.setOnCheckedChangeListener(null);
+        if (app.isScanningOrPaused() && !s.isChecked()) {
+            s.setChecked(true);
+        } else if (!app.isScanningOrPaused() && s.isChecked()) {
+            s.setChecked(false);
         }
+        s.setOnCheckedChangeListener(mStartStopButtonListener);
 
         if (mMapFragment != null) {
             mMapFragment.dimToolbar();
@@ -463,4 +445,3 @@ public class MainDrawerActivity
         }
     }
 }
-

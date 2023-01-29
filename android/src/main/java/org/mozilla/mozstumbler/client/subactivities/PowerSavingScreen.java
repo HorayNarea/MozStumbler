@@ -1,13 +1,11 @@
 package org.mozilla.mozstumbler.client.subactivities;
 
-import android.annotation.TargetApi;
 import android.app.Dialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -154,7 +152,6 @@ public class PowerSavingScreen extends AppCompatActivity {
         private void setupTestMotionButton() {
             Button button = (Button) findViewById(R.id.testSignificantMotionSensor);
             button.setOnClickListener(new View.OnClickListener() {
-                @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
                 public void onClick(View v) {
                     Context c = PowerSavingScreen.this;
                     AlertDialog.Builder builder = new AlertDialog.Builder(c)

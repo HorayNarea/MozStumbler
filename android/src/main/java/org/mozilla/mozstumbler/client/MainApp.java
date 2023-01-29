@@ -4,7 +4,10 @@
 
 package org.mozilla.mozstumbler.client;
 
-import android.annotation.TargetApi;
+import static org.mozilla.mozstumbler.service.stumblerthread.scanners.ScanManager.ACTION_SCAN_PAUSED_USER_MOTIONLESS;
+import static org.mozilla.mozstumbler.service.stumblerthread.scanners.ScanManager.ACTION_SCAN_UNPAUSED_USER_MOVED;
+import static org.mozilla.mozstumbler.service.stumblerthread.scanners.ScanManager.ScannerState;
+
 import android.app.Application;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
@@ -13,7 +16,6 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.content.pm.PackageManager;
-import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.StrictMode;
@@ -64,10 +66,6 @@ import org.mozilla.osmdroid.tileprovider.constants.TileFilePath;
 import java.io.File;
 import java.lang.ref.WeakReference;
 import java.util.concurrent.atomic.AtomicBoolean;
-
-import static org.mozilla.mozstumbler.service.stumblerthread.scanners.ScanManager.ACTION_SCAN_PAUSED_USER_MOTIONLESS;
-import static org.mozilla.mozstumbler.service.stumblerthread.scanners.ScanManager.ACTION_SCAN_UNPAUSED_USER_MOVED;
-import static org.mozilla.mozstumbler.service.stumblerthread.scanners.ScanManager.ScannerState;
 
 ;
 
@@ -344,13 +342,8 @@ public class MainApp extends Application
         uploader.execute(param);
     }
 
-    @TargetApi(9)
     private void enableStrictMode() {
         if (!AppGlobals.isDebug) {
-            return;
-        }
-
-        if (Build.VERSION.SDK_INT < 9) {
             return;
         }
 
@@ -405,7 +398,6 @@ public class MainApp extends Application
         }
     }
 
-    @TargetApi(14)
     @Override
     public void onTrimMemory(int level) {
         super.onTrimMemory(level);

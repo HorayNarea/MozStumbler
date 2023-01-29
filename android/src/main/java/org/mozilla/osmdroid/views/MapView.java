@@ -10,7 +10,6 @@ import android.graphics.Paint;
 import android.graphics.Point;
 import android.graphics.PointF;
 import android.graphics.Rect;
-import android.os.Build;
 import android.os.Handler;
 import android.util.AttributeSet;
 import android.view.GestureDetector;
@@ -811,30 +810,24 @@ public class MapView extends ViewGroup implements IMapView, MapViewConstants,
         }
 
         MotionEvent rotatedEvent = MotionEvent.obtain(ev);
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB) {
-            getProjection().unrotateAndScalePoint((int) ev.getX(), (int) ev.getY(),
-                    mRotateScalePoint);
-            rotatedEvent.setLocation(mRotateScalePoint.x, mRotateScalePoint.y);
-        } else {
-            // This method is preferred since it will rotate historical touch events too
-            try {
-                if (sMotionEventTransformMethod == null) {
-                    sMotionEventTransformMethod = MotionEvent.class.getDeclaredMethod("transform",
-                            new Class<?>[]{Matrix.class});
-                }
-                sMotionEventTransformMethod.invoke(rotatedEvent, getProjection()
-                        .getInvertedScaleRotateCanvasMatrix());
-            } catch (SecurityException e) {
-                e.printStackTrace();
-            } catch (NoSuchMethodException e) {
-                e.printStackTrace();
-            } catch (IllegalArgumentException e) {
-                e.printStackTrace();
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-            } catch (InvocationTargetException e) {
-                e.printStackTrace();
+        // This method is preferred since it will rotate historical touch events too
+        try {
+            if (sMotionEventTransformMethod == null) {
+                sMotionEventTransformMethod = MotionEvent.class.getDeclaredMethod("transform",
+                        new Class<?>[]{Matrix.class});
             }
+            sMotionEventTransformMethod.invoke(rotatedEvent, getProjection()
+                    .getInvertedScaleRotateCanvasMatrix());
+        } catch (SecurityException e) {
+            e.printStackTrace();
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
         }
         return rotatedEvent;
     }

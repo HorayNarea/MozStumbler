@@ -4,10 +4,8 @@
 
 package org.mozilla.mozstumbler.service.stumblerthread.datahandling;
 
-import android.annotation.TargetApi;
 import android.location.Location;
 import android.net.wifi.ScanResult;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -101,7 +99,6 @@ public final class StumblerBundle implements Parcelable {
         return Collections.unmodifiableMap(mCellData);
     }
 
-    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     public MLSJSONObject toMLSGeosubmit() throws JSONException {
         MLSJSONObject headerFields = new MLSJSONObject();
         headerFields.put(DataStorageConstants.ReportsColumns.LAT, Math.floor(mGpsPosition.getLatitude() * 1.0E6) / 1.0E6);
@@ -127,9 +124,7 @@ public final class StumblerBundle implements Parcelable {
             JSONArray wifis = new JSONArray();
             long gpsTimeSinceBootInMS = 0;
 
-            if (Build.VERSION.SDK_INT >= 17) {
-                gpsTimeSinceBootInMS = (mGpsPosition.getElapsedRealtimeNanos() / 1000000);
-            }
+            gpsTimeSinceBootInMS = (mGpsPosition.getElapsedRealtimeNanos() / 1000000);
 
             for (ScanResult scanResult : mWifiData.values()) {
                 JSONObject wifiEntry = new JSONObject();
@@ -141,11 +136,9 @@ public final class StumblerBundle implements Parcelable {
                     wifiEntry.put("signalStrength", scanResult.level);
                 }
 
-                if (Build.VERSION.SDK_INT >= 17) {
-                    long wifiTimeSinceBootInMS = (scanResult.timestamp / 1000);
-                    long ageMS =  wifiTimeSinceBootInMS - gpsTimeSinceBootInMS;
-                    wifiEntry.put("age", ageMS);
-                }
+                long wifiTimeSinceBootInMS = (scanResult.timestamp / 1000);
+                long ageMS =  wifiTimeSinceBootInMS - gpsTimeSinceBootInMS;
+                wifiEntry.put("age", ageMS);
 
                 wifis.put(wifiEntry);
             }

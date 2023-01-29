@@ -4,8 +4,6 @@
 
 package org.mozilla.mozstumbler.service.core.http;
 
-import android.os.Build;
-
 import org.mozilla.mozstumbler.service.Prefs;
 import org.mozilla.mozstumbler.service.core.logging.ClientLog;
 import org.mozilla.mozstumbler.service.utils.Zipper;
@@ -164,13 +162,6 @@ public class HttpUtil implements IHttpUtil {
             return new HTTPResponse(598, 0);
         }
 
-        // Workaround for a bug in Android mHttpURLConnection. When the library
-        // reuses a stale connection, the connection may fail with an EOFException
-        // http://stackoverflow.com/questions/15411213/android-httpsurlconnection-eofexception/17791819#17791819
-        if (Build.VERSION.SDK_INT > 13 && Build.VERSION.SDK_INT < 19) {
-            httpURLConnection.setRequestProperty("Connection", "Close");
-        }
-
         // Set headers
         for (Map.Entry<String, String> entry : headers.entrySet()) {
             httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
@@ -231,13 +222,6 @@ public class HttpUtil implements IHttpUtil {
         httpURLConnection.setDoOutput(true);
         httpURLConnection.setRequestProperty(USER_AGENT_HEADER, userAgent);
         httpURLConnection.setRequestProperty("Content-Type", "application/json");
-
-        // Workaround for a bug in Android mHttpURLConnection. When the library
-        // reuses a stale connection, the connection may fail with an EOFException
-        // http://stackoverflow.com/questions/15411213/android-httpsurlconnection-eofexception/17791819#17791819
-        if (Build.VERSION.SDK_INT > 13 && Build.VERSION.SDK_INT < 19) {
-            httpURLConnection.setRequestProperty("Connection", "Close");
-        }
 
         // Set headers
         for (Map.Entry<String, String> entry : headers.entrySet()) {

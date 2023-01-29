@@ -4,7 +4,6 @@
 
 package org.mozilla.mozstumbler.service.stumblerthread.scanners.cellscanner;
 
-import android.os.Build;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.telephony.CellLocation;
@@ -243,10 +242,8 @@ public class CellInfo implements Parcelable {
             if (lac >= 0) mLac = lac;
             if (cid >= 0) mCid = cid;
 
-            if (Build.VERSION.SDK_INT >= 9) {
-                final int psc = gcl.getPsc();
-                if (psc >= 0) mPsc = psc;
-            }
+            final int psc = gcl.getPsc();
+            if (psc >= 0) mPsc = psc;
 
             if (signalStrength != null) {
                 mSignalStrength = signalStrength;

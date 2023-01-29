@@ -12,7 +12,6 @@ import android.graphics.Paint;
 import android.location.Location;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -478,9 +477,6 @@ public class MapFragment extends Fragment
 
     @SuppressLint("NewApi")
     public void dimToolbar() {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB) {
-            return;
-        }
         View v = mRootView.findViewById(R.id.status_toolbar_layout);
 
         final MainApp app = getApplication();

@@ -9,7 +9,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.location.Location;
-import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
 
@@ -48,8 +47,7 @@ public class ObservedLocationsReceiver extends BroadcastReceiver {
 
     // Upper bound on the size of the linked lists of points, for memory and performance safety.
     // On older devices, store fewer observations
-    private final int MAX_SIZE_OF_POINT_LISTS = (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) ?
-            5000 : 2500;
+    private final int MAX_SIZE_OF_POINT_LISTS = 5000;
     private WeakReference<MapFragment> mMapActivity = new WeakReference<MapFragment>(null);
     private Context mContext;
 

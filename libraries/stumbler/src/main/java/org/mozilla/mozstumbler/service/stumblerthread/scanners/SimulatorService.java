@@ -8,7 +8,6 @@ import android.content.Context;
 import android.location.Location;
 import android.location.LocationManager;
 import android.net.wifi.ScanResult;
-import android.os.Build;
 import android.os.Handler;
 import android.os.SystemClock;
 
@@ -117,9 +116,7 @@ public class SimulatorService implements ISimulatorService {
         mockLocation.setAccuracy(5);
         mockLocation.setTime(System.currentTimeMillis());
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-            mockLocation.setElapsedRealtimeNanos(SystemClock.elapsedRealtimeNanos());
-        }
+        mockLocation.setElapsedRealtimeNanos(SystemClock.elapsedRealtimeNanos());
 
         // This is rougly ~5m-ish.
         mLat += 0.00003;

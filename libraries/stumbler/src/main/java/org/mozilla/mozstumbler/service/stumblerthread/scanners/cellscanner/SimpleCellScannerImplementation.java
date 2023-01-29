@@ -4,7 +4,6 @@
 
 package org.mozilla.mozstumbler.service.stumblerthread.scanners.cellscanner;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
 import android.telephony.CellIdentityCdma;
@@ -72,11 +71,7 @@ public class SimpleCellScannerImplementation implements ISimpleCellScanner {
         mIsStarted = true;
 
         if (mTelephonyManager == null) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
-                mGetAllInfoCellScanner = new GetAllCellInfoScannerMr2();
-            } else {
-                mGetAllInfoCellScanner = new GetAllCellInfoScannerDummy();
-            }
+            mGetAllInfoCellScanner = new GetAllCellInfoScannerMr2();
 
             mTelephonyManager = (TelephonyManager) mContext.getSystemService(Context.TELEPHONY_SERVICE);
 
@@ -193,13 +188,11 @@ public class SimpleCellScannerImplementation implements ISimpleCellScanner {
         return records;
     }
 
-    @TargetApi(18)
     protected boolean addWCDMACellToList(List<CellInfo> cells,
                                          android.telephony.CellInfo observedCell,
                                          TelephonyManager tm) {
         boolean added = false;
-        if (Build.VERSION.SDK_INT >= 18 &&
-                observedCell instanceof CellInfoWcdma) {
+        if (observedCell instanceof CellInfoWcdma) {
             CellIdentityWcdma ident = ((CellInfoWcdma) observedCell).getCellIdentity();
             if (ident.getMnc() != Integer.MAX_VALUE && ident.getMcc() != Integer.MAX_VALUE) {
                 CellInfo cell = new CellInfo();
@@ -217,7 +210,6 @@ public class SimpleCellScannerImplementation implements ISimpleCellScanner {
         return added;
     }
 
-    @TargetApi(18)
     protected boolean addCellToList(List<CellInfo> cells,
                                     android.telephony.CellInfo observedCell,
                                     TelephonyManager tm) {
@@ -266,7 +258,7 @@ public class SimpleCellScannerImplementation implements ISimpleCellScanner {
             }
         }
 
-        if (!added && Build.VERSION.SDK_INT >= 18) {
+        if (!added) {
             added = addWCDMACellToList(cells, observedCell, tm);
         }
 
@@ -285,7 +277,6 @@ public class SimpleCellScannerImplementation implements ISimpleCellScanner {
         }
     }
 
-    @TargetApi(18)
     private class GetAllCellInfoScannerMr2 implements GetAllCellInfoScannerImpl {
         @Override
         public List<CellInfo> getAllCellInfo(TelephonyManager tm) {

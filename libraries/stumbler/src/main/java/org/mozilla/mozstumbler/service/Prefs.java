@@ -5,10 +5,8 @@
 package org.mozilla.mozstumbler.service;
 
 import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.os.Build.VERSION;
 import android.text.TextUtils;
 import android.util.Log;
 
@@ -90,13 +88,8 @@ public class Prefs {
         return sInstance;
     }
 
-    @TargetApi(9)
     protected static void apply(SharedPreferences.Editor editor) {
-        if (VERSION.SDK_INT >= 9) {
-            editor.apply();
-        } else if (!editor.commit()) {
-            Log.e(LOG_TAG, "", new IllegalStateException("commit() failed?!"));
-        }
+        editor.apply();
     }
 
     ///

@@ -2,7 +2,6 @@ package org.mozilla.osmdroid.tileprovider;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.os.Build;
 
 import java.util.LinkedList;
 
@@ -37,11 +36,9 @@ public class BitmapPool {
     }
 
     public void applyReusableOptions(final BitmapFactory.Options aBitmapOptions) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-            aBitmapOptions.inBitmap = obtainBitmapFromPool();
-            aBitmapOptions.inSampleSize = 1;
-            aBitmapOptions.inMutable = true;
-        }
+        aBitmapOptions.inBitmap = obtainBitmapFromPool();
+        aBitmapOptions.inSampleSize = 1;
+        aBitmapOptions.inMutable = true;
     }
 
     public Bitmap obtainBitmapFromPool() {

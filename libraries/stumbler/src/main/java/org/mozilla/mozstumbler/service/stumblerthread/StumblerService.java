@@ -4,7 +4,6 @@
 
 package org.mozilla.mozstumbler.service.stumblerthread;
 
-import android.annotation.TargetApi;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -263,7 +262,6 @@ public class StumblerService extends PersistentIntentService
         handleLowMemoryNotification();
     }
 
-    @TargetApi(14)
     @Override
     public void onTrimMemory(int level) {
         super.onTrimMemory(level);

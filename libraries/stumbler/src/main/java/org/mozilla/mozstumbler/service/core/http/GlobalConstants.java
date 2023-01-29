@@ -50,17 +50,11 @@ public class GlobalConstants {
                             "TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256",     // 20+
                             "TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA",        // 11+
                     };
-        } else if (Build.VERSION.SDK_INT >= 11) {
+        } else {
             DEFAULT_CIPHER_SUITES = new String[]
                     {
                             "TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA",        // 11+
                             "TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA",        // 11+
-                    };
-        } else {       // 9+
-            // Fall back to the only half-decent cipher suite supported on Gingerbread.
-            DEFAULT_CIPHER_SUITES = new String[]
-                    {
-                            "TLS_DHE_RSA_WITH_AES_256_CBC_SHA"           // 9+
                     };
         }
 
@@ -71,17 +65,11 @@ public class GlobalConstants {
                             "TLSv1.2",
                             "TLSv1.1",
                     };
-        } else if (Build.VERSION.SDK_INT >= 16) {
+        } else {
             DEFAULT_PROTOCOLS = new String[]
                     {
                             "TLSv1.2",
                             "TLSv1.1",
-                    };
-        } else {
-            // Fall back to TLSv1 if there's nothing better.
-            DEFAULT_PROTOCOLS = new String[]
-                    {
-                            "TLSv1",
                     };
         }
     }
