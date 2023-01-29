@@ -168,7 +168,6 @@ public class DataStorageManager extends JSONRowsStorageManager implements IDataS
     @Override
     public synchronized SerializedJSONRows getNextBatch() {
         SerializedJSONRows result = super.getNextBatch();
-        assert(result instanceof ReportBatch);
         return result;
     }
 }

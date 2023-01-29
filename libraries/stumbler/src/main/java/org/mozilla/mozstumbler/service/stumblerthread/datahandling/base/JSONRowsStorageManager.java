@@ -68,7 +68,6 @@ public class JSONRowsStorageManager {
         }
 
         mFileList = createFileList(mStorageDir);
-        mFileList.update();
     }
 
     protected SerializedJSONRowsList createFileList(File storageDir) {
