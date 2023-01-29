@@ -1,9 +1,9 @@
 package org.mozilla.osmdroid.tileprovider.modules;
 
-import org.apache.http.util.ByteArrayBuffer;
 import org.mozilla.mozstumbler.service.core.logging.ClientLog;
 import org.mozilla.mozstumbler.svclocator.services.log.LoggerUtil;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -112,25 +112,25 @@ public class SerializableTile {
 
      */
     private byte[] asBytes() throws CharacterCodingException {
-        ByteArrayBuffer buff = new ByteArrayBuffer(10);
+        ByteArrayOutputStream buff = new ByteArrayOutputStream(10);
 
-        buff.append(FILE_HEADER, 0, FILE_HEADER.length);
-        buff.append(intAsBytes(headers.size()), 0, 4);
+        buff.write(FILE_HEADER, 0, FILE_HEADER.length);
+        buff.write(intAsBytes(headers.size()), 0, 4);
 
         for (Map.Entry<String, String> entry : headers.entrySet()) {
             byte[] keyBytes = entry.getKey().getBytes();
             byte[] valueBytes = entry.getValue().getBytes();
-            buff.append(intAsBytes(keyBytes.length), 0, 4);
-            buff.append(intAsBytes(valueBytes.length), 0, 4);
-            buff.append(keyBytes, 0, keyBytes.length);
-            buff.append(valueBytes, 0, valueBytes.length);
+            buff.write(intAsBytes(keyBytes.length), 0, 4);
+            buff.write(intAsBytes(valueBytes.length), 0, 4);
+            buff.write(keyBytes, 0, keyBytes.length);
+            buff.write(valueBytes, 0, valueBytes.length);
         }
 
         if (tData == null || tData.length == 0) {
-            buff.append(intAsBytes(0), 0, 4);
+            buff.write(intAsBytes(0), 0, 4);
         } else {
-            buff.append(intAsBytes(tData.length), 0, 4);
-            buff.append(tData, 0, tData.length);
+            buff.write(intAsBytes(tData.length), 0, 4);
+            buff.write(tData, 0, tData.length);
         }
 
         return buff.toByteArray();
