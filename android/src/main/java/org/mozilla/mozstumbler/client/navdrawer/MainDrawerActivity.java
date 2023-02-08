@@ -15,7 +15,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 
@@ -144,11 +143,6 @@ public class MainDrawerActivity
                     .registerReceiver(svcStatsRespReceiver,
                             filter);
         }
-
-
-        getWindow().setFlags(
-                WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED,
-                WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED);
 
         getSupportActionBar().setTitle(getString(R.string.app_name));
 
