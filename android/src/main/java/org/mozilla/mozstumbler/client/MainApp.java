@@ -67,11 +67,8 @@ import java.io.File;
 import java.lang.ref.WeakReference;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-;
-
 @ReportsCrashes(
         formKey = "",
-        httpMethod = HttpSender.Method.PUT,
         reportType = HttpSender.Type.JSON,
         formUri = BuildConfig.ACRA_URI,
         formUriBasicAuthLogin = BuildConfig.ACRA_USER,

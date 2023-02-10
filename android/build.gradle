@@ -49,9 +49,9 @@ android {
         buildConfigField "boolean", "FDROID", "false"
 
         // Crash report settings
-        buildConfigField "String", "ACRA_URI", "\"https://mozstumbler-crashes.stage.mozaws.net/acra-stumbler/_design/acra-storage/_update/report\""
-        buildConfigField "String", "ACRA_USER", "\"nospam\""
-        buildConfigField "String", "ACRA_PASS", "\"4ok3bsWs509i\""
+        buildConfigField "String", "ACRA_URI", "\"https://crash.gecko.space/report\""
+        buildConfigField "String", "ACRA_USER", "\"hAcYqmfjM31TgySr\""
+        buildConfigField "String", "ACRA_PASS", "\"lAJQMuo33JDsrplK\""
 
         buildConfigField "String", "GIT_DESCRIPTION", "\"${gitDescription}\""
         buildConfigField "String", "GIT_VERSION", "\"${versionName} ${gitDescription}\""
@@ -149,9 +149,7 @@ dependencies {
     implementation "joda-time:joda-time:2.2"
 
     // Acralyzer crash reports
-    implementation('ch.acra:acra:4.5.0') {
-        exclude group: 'org.json'
-    }
+    implementation 'ch.acra:acra:4.5.0'
 
     // Stumbler library - always build from source
     implementation project(':libraries:stumbler')
