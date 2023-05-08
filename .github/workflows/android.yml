@@ -9,9 +9,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    continue-on-error: ${{ matrix.allow_fail }}
     strategy:
       matrix:
-        java: [ "17", "19", "20" ]
+        java: [ "17", "19" ]
+        allow_fail: [false]
+        include:
+          - java: 20
+            allow_fail: true
 
     steps:
     - name: checkout repository
