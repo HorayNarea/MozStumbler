@@ -149,7 +149,7 @@ dependencies {
         exclude group: 'xpp3', module: 'xpp3'
     }
 
-    implementation "joda-time:joda-time:2.2"
+    implementation "joda-time:joda-time:2.12.7"
 
     // Acralyzer crash reports
     implementation 'ch.acra:acra:4.5.0'
