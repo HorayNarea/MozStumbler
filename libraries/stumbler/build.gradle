@@ -29,8 +29,8 @@ dependencies {
 
     androidTestImplementation 'org.skyscreamer:jsonassert:1.2.3'
     testImplementation 'org.skyscreamer:jsonassert:1.2.3'
-    androidTestImplementation 'com.google.code.gson:gson:2.8.9'
-    testImplementation 'com.google.code.gson:gson:2.8.9'
+    androidTestImplementation 'com.google.code.gson:gson:2.10.1'
+    testImplementation 'com.google.code.gson:gson:2.10.1'
 
     androidTestImplementation 'org.robolectric:robolectric:2.4'
     testImplementation 'org.robolectric:robolectric:2.4'
