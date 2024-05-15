@@ -119,6 +119,9 @@ android {
     }
 
     namespace 'org.mozilla.mozstumbler'
+    buildFeatures {
+        buildConfig true
+    }
 }
 
 dependencies {
