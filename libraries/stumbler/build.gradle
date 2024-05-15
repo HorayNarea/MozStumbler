@@ -8,11 +8,11 @@ allprojects {
 }
 
 android {
-    compileSdkVersion 28
+    compileSdk 28
 
     defaultConfig {
-        minSdkVersion 19
-        targetSdkVersion 28
+        minSdk 19
+        targetSdk 28
     }
 
     lint {

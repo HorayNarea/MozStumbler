@@ -17,7 +17,7 @@ repositories {
 }
 
 android {
-    compileSdkVersion 28
+    compileSdk 28
 
     def gitHash = "git rev-parse --short HEAD".execute().text.trim()
     def hasModifiedDeletedOrOtherFiles = !"git ls-files -mdo --exclude-standard".execute().text.trim().isEmpty()
@@ -31,8 +31,8 @@ android {
     }
 
     defaultConfig {
-        minSdkVersion 19
-        targetSdkVersion 28
+        minSdk 19
+        targetSdk 28
 
         applicationId "org.mozilla.mozstumbler"
 
