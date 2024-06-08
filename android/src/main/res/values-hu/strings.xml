@@ -142,9 +142,6 @@
     <!-- enable_option_show_mls_on_map_detailed_info: %1$s refers to upload_wifi_only_title -->
     <string name="enable_option_show_mls_on_map_detailed_info">Kicsit több memória- és adathasználat mellett, az MLS hely is megjelenítésre kerül minden egyes jelentéshez – azaz a már letapogatott adatokból becsült hely.\n Ez piros pontként jelenik meg, összekötve a jelentéssel. Minél közelebb van a tényleges GPS hellyel, annál pontosabb és megbízhatóbb a Mozilla Location Service. A további letapogatások tovább fogják ezt javítani.\nViszont ez nem fogja lekérdezni a helyeket, ha az „%1$s” engedélyezett.</string>
 
-    <!-- This is an experimental option to enable offline location queries-->
-    <string name="enable_offline_geo">Offline helylekérdezések engedélyezése</string>
-
     <string name="cell_plus_wifi_observation">Wi-Fi és mobilcella jelentés</string>
     <string name="cell_only_observation">Csak mobilcella jelentés</string>
     <string name="wifi_only_observation">Csak Wi-Fi jelentés</string>

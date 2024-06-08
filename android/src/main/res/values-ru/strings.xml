@@ -145,9 +145,6 @@
     <!-- enable_option_show_mls_on_map_detailed_info: %1$s refers to upload_wifi_only_title -->
     <string name="enable_option_show_mls_on_map_detailed_info">MLS-местоположение будет показано для каждого отчёта - то есть, Ваше расчётное местоположение на основе текущих сведений MLS в точке создания отчёта.\n\nMLS-местоположения отображаются в виде красных точек с линиями, ведущими к отчётам. Чем они ближе к текущему GPS-местоположению, тем надёжнее и точнее геолокация на основе сведений MLS. Точность в этом районе можно улучшить, чаще выполняя сканирование.\n\nЗапросы местоположения не используют мобильное соединение, если включена \"%1$s\"</string>
 
-    <!-- This is an experimental option to enable offline location queries-->
-    <string name="enable_offline_geo">Оффлайн-запросы местоположения</string>
-
     <string name="cell_plus_wifi_observation">WiFi- и GSM-отчёт</string>
     <string name="cell_only_observation">GSM-отчёт</string>
     <string name="wifi_only_observation">WiFi-отчёт</string>
