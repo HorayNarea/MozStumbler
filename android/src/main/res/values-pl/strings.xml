@@ -149,9 +149,6 @@
     <!-- enable_option_show_mls_on_map_detailed_info: %1$s refers to upload_wifi_only_title -->
     <string name="enable_option_show_mls_on_map_detailed_info">Wykorzystując nieco więcej pamięci i sieci, mapa może wyświetlać położenie MLS dla każdej obserwacji - tzn. położenie szacowane w oparciu o zebrane dane.\nPołożenia są wyświetlane jako czerwone kropki połączone liniami z obserwacjami. Im bliżej prawdziwego położenia GPS, tym dokładniejsza jest usługa Mozilla Location Service. Zebranie więcej danych spowoduje zwiększenie dokładności.\nJeśli \"%1$s\" jest włączone, to nie będzie to działało podczas używania połączenia komórkowego.</string>
 
-    <!-- This is an experimental option to enable offline location queries-->
-    <string name="enable_offline_geo">Zapytania o położenia w trybie offline</string>
-
     <string name="cell_plus_wifi_observation">Obserwacje sieci Wi-Fi i komórkowych</string>
     <string name="cell_only_observation">Obserwacje tylko sieci komórkowych</string>
     <string name="wifi_only_observation">Obserwacje tylko sieci Wi-Fi</string>

@@ -10,10 +10,8 @@ import android.util.Log;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.mozilla.mozstumbler.service.Prefs;
 import org.mozilla.mozstumbler.service.core.http.ILocationService;
 import org.mozilla.mozstumbler.service.core.http.IResponse;
-import org.mozilla.mozstumbler.service.core.offline.IOfflineLocationService;
 import org.mozilla.mozstumbler.service.utils.LocationAdapter;
 import org.mozilla.mozstumbler.svclocator.ServiceLocator;
 import org.mozilla.mozstumbler.svclocator.services.log.LoggerUtil;
@@ -49,19 +47,10 @@ public class AsyncGeolocate extends AsyncTask<String, Void, Location> {
             return null;
         }
 
-        if (Prefs.getInstanceWithoutContext().useOfflineGeo()) {
-            Log.i(LOG_TAG, "Using offline location fixing!");
-            mls = (ILocationService)
-                    ServiceLocator.getInstance()
-                            .getService(IOfflineLocationService.class);
-        } else {
-
-            Log.i(LOG_TAG, "Using MLS online location fixing!");
-            mls = (ILocationService)
-                    ServiceLocator.getInstance()
-                            .getService(ILocationService.class);
-
-        }
+        Log.i(LOG_TAG, "Using MLS online location fixing!");
+        mls = (ILocationService)
+                ServiceLocator.getInstance()
+                        .getService(ILocationService.class);
 
         // TODO: the ILocationService shouldn't be returning raw HTTP responses.
         // We should either get a Location or a null.

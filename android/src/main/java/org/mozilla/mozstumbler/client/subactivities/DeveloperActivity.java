@@ -118,7 +118,6 @@ public class DeveloperActivity extends AppCompatActivity {
             // Setup for any logical group of config options should self contained in their
             // own methods.  This is mostly to help with merges in the event that multiple
             // source branches update the developer options.
-            setupOfflineGeoToggle();
             setupHighPowerMode();
             setupSaveJSONLogs();
             setupSimulationPreference();
@@ -134,21 +133,6 @@ public class DeveloperActivity extends AppCompatActivity {
                 mainApp.stopScanning();
                 mainApp.startScanning();
             }
-        }
-
-        private void setupOfflineGeoToggle() {
-            boolean useOfflineGeo = Prefs.getInstance(mRootView.getContext()).useOfflineGeo();
-            CheckBox button = (CheckBox) mRootView.findViewById(R.id.toggleOfflineGeo);
-            button.setChecked(useOfflineGeo);
-            button.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                @Override
-                public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
-                    // do nothing here as we are just going to query the value
-                    // when we trigger an AsyncGeolocate call
-                    Prefs.getInstance(mRootView.getContext()).setOfflineGeo(isChecked);
-                }
-            });
-
         }
 
         private void setupHighPowerMode() {

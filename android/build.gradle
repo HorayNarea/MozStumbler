@@ -143,6 +143,7 @@ dependencies {
     // provide APIs for recommended user interface patterns.
 
     implementation 'androidx.appcompat:appcompat:1.3.1'
+    implementation 'androidx.localbroadcastmanager:localbroadcastmanager:1.0.0'
 
     implementation('org.simpleframework:simple-xml:2.7.1') {
         exclude group: 'stax', module: 'stax-api'

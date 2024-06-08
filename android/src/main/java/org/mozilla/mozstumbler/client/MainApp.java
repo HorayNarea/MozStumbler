@@ -38,8 +38,6 @@ import org.mozilla.mozstumbler.service.core.http.IHttpUtil;
 import org.mozilla.mozstumbler.service.core.http.ILocationService;
 import org.mozilla.mozstumbler.service.core.http.MLSLocationService;
 import org.mozilla.mozstumbler.service.core.logging.MockAcraLog;
-import org.mozilla.mozstumbler.service.core.offline.IOfflineLocationService;
-import org.mozilla.mozstumbler.service.core.offline.LocationService;
 import org.mozilla.mozstumbler.service.stumblerthread.Reporter;
 import org.mozilla.mozstumbler.service.stumblerthread.datahandling.DataStorageConstants;
 import org.mozilla.mozstumbler.service.stumblerthread.datahandling.DataStorageManager;
@@ -148,10 +146,6 @@ public class MainApp extends Application
             result.put(ILogger.class, ServiceConfig.load(UnittestLogger.class.getName()));
         } else if (BuildConfig.BUILD_TYPE.equals("debug")) {
             result.put(ILogger.class, ServiceConfig.load(DebugLogger.class.getName()));
-
-            result.put(IOfflineLocationService.class,
-                    ServiceConfig.load(LocationService.class.getName()));
-
         } else {
             result.put(ILogger.class, ServiceConfig.load("org.mozilla.mozstumbler.svclocator.services.log.ProductionLogger"));
         }
