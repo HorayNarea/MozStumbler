@@ -125,8 +125,8 @@ android {
 }
 
 dependencies {
-    androidTestImplementation 'junit:junit:4.10'
-    testImplementation 'junit:junit:4.10'
+    androidTestImplementation 'junit:junit:4.13.2'
+    testImplementation 'junit:junit:4.13.2'
 
     androidTestImplementation 'org.robolectric:robolectric:2.4'
     testImplementation 'org.robolectric:robolectric:2.4'

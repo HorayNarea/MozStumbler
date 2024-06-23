@@ -24,8 +24,8 @@ android {
 }
 
 dependencies {
-    androidTestImplementation 'junit:junit:4.10'
-    testImplementation 'junit:junit:4.10'
+    androidTestImplementation 'junit:junit:4.13.2'
+    testImplementation 'junit:junit:4.13.2'
 
     androidTestImplementation 'org.skyscreamer:jsonassert:1.2.3'
     testImplementation 'org.skyscreamer:jsonassert:1.2.3'
